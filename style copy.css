@@ -1,0 +1,26 @@
+h1 {
+    text-align: center;
+    padding: 20px;
+    padding-top:20px;
+    padding: bottom 20px;
+    background-color: gray;
+    color: white;
+}
+
+#search-btn {
+   color: white;
+   background-color: blue; 
+}
+
+#uv-index {
+    background-color: red;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 50px;
+}
+
+#box-color {
+    background-color: rgba(0, 119, 255, 0.979);
+}

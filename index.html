@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <title>Weather Dashboard API</title>
+    <h1>Weather Dashboard</h1>
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col-md">
+
+            <div class="container">
+                <form>
+                    <div class="form-group">
+                        <label for="searching for cities">Search for a City</label>
+                        <form class="example" action="action_page.php">
+                            <input id=cityName type="text" placeholder="Search.." name="search">
+                            <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                        <small id="SearchHelp" class="form-text text-muted">Enter what city you would like to
+                            search</small>
+                    </div>
+
+                    <section id="city-list">
+
+                        <ul style="list-style-type:none;">
+                            <li><strong>Austin</strong></li>
+                            <li><strong>Chicago</strong></li>
+                            <li><strong>New York</strong></li>
+                            <li><strong>Orlando</strong></li>
+                            <li><strong>San Francisco</strong></li>
+                            <li><strong>Seattle</strong></li>
+                            <li><strong>Denver</strong></li>
+                            <li><strong>Atlanta</strong></li>
+
+
+                        </ul>
+                    </section>
+                </form>
+            </div>
+
+        </div>
+
+
+        <div class="col-md">
+
+            <div class="container">
+
+                <div class="row"></div>
+
+                <section>
+                    <h2 id="city-header">This is a City header</h2>
+
+                    <ul style="list-style-type:none;">
+                        <li id="temp"><strong>temp</strong></li>
+                        <li id="humidity"><strong>hum</strong></li>
+                        <li id="wind-speed"><strong>wind</strong></li>
+                        <li id="uv-index"><strong>uv</strong></li>
+                    </ul>
+
+
+                </section>
+
+
+                <div class="row">
+                    <section>
+
+                        <h3>5 Day Forecast:</h3>
+
+                        <div class="row">
+
+                            <div class="col-sm">
+
+                                <div class="weather">
+
+                                    <ul id="box-color" style="list-style-type:none;">
+                                        <li id="date-1"><strong>temp</strong></li>
+                                        <li id="condition-1"><strong>hum</strong></li>
+                                        <li id="temp-1"><strong>wind</strong></li>
+                                        <li id="humidity-1"><strong>uv</strong></li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm">
+
+                                <div class="weather">
+
+                                    <ul id="box-color" style="list-style-type:none;">
+                                        <li id="date-2"><strong>temp</strong></li>
+                                        <li id="condition-2"><strong>hum</strong></li>
+                                        <li id="temp-2"><strong>wind</strong></li>
+                                        <li id="humidity-2"><strong>uv</strong></li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm">
+
+                                <div class="weather">
+
+                                    <ul id="box-color" style="list-style-type:none;">
+                                        <li id="date-3"><strong>temp</strong></li>
+                                        <li id="condition-3"><strong>hum</strong></li>
+                                        <li id="temp-3"><strong>wind</strong></li>
+                                        <li id="humidity-3"><strong>uv</strong></li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm">
+
+                                <div class="weather">
+
+                                    <ul id="box-color" style="list-style-type:none;">
+                                        <li id="date-4"><strong>temp</strong></li>
+                                        <li id="condition-4"><strong>hum</strong></li>
+                                        <li id="temp-4"><strong>wind</strong></li>
+                                        <li id="humidity-4"><strong>uv</strong></li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm">
+
+                                <div class="weather">
+
+                                    <ul id="box-color" style="list-style-type:none;">
+                                        <li id="date-5"><strong>temp</strong></li>
+                                        <li id="condition-5"><strong>hum</strong></li>
+                                        <li id="temp-5"><strong>wind</strong></li>
+                                        <li id="humidity-5"><strong>uv</strong></li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
