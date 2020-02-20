@@ -11,7 +11,7 @@ $(".search-btn").click(function (e) {
 
     var today = date.getUTCDate();
 
-    var urlCurrent = "http://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&APPID=" + "81d8ef96afa57d12a8d97affba137461";
+    var urlCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&APPID=" + "81d8ef96afa57d12a8d97affba137461";
 
 
     $.ajax({
@@ -37,7 +37,7 @@ $(".search-btn").click(function (e) {
         var long = dataCurr.coord.lon;
         var lat = dataCurr.coord.lat;
 
-        var uvCurr = "http://api.openweathermap.org/data/2.5/uvi?appid=" + "81d8ef96afa57d12a8d97affba137461&lat=" + lat + "&lon=" + long;
+        var uvCurr = "https://api.openweathermap.org/data/2.5/uvi?appid=" + "81d8ef96afa57d12a8d97affba137461&lat=" + lat + "&lon=" + long;
 
         $.ajax({
             url: uvCurr,
@@ -67,7 +67,7 @@ $(".search-btn").click(function (e) {
 
     })
 
-    var urlSearch = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityname + "&APPID=" + "81d8ef96afa57d12a8d97affba137461";
+    var urlSearch = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityname + "&APPID=" + "81d8ef96afa57d12a8d97affba137461";
 
 
     $.ajax({
