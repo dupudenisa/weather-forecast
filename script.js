@@ -1,6 +1,5 @@
-
 var searchHistory = document.querySelector("#search-history");
-
+var searches = [];
 
 
 $(".search-btn").click(function (e) {
@@ -12,7 +11,61 @@ $(".search-btn").click(function (e) {
 
     var today = date.getUTCDate();
 
-    var limit = 5;
+    var urlCurrent = "http://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&APPID=" + "81d8ef96afa57d12a8d97affba137461";
+
+
+    $.ajax({
+        url: urlCurrent,
+        method: "GET"
+
+    }).then(function (dataCurr) {
+
+        console.log(dataCurr);
+
+        var city = dataCurr.name;
+        var tempToday = dataCurr.main.temp;
+        var humidityToday = dataCurr.main.humidity;
+        var windToday = dataCurr.wind.speed;
+
+
+        $("#city-header").text(city + " " + today);
+        $("#temp").text("Temperature: " + tempToday);
+        $("#humidity").text("Humidity: " + humidityToday);
+        $("#wind-speed").text("Wind Speed: " + windToday);
+
+
+        var long = dataCurr.coord.lon;
+        var lat = dataCurr.coord.lat;
+
+        var uvCurr = "http://api.openweathermap.org/data/2.5/uvi?appid=" + "81d8ef96afa57d12a8d97affba137461&lat=" + lat + "&lon=" + long;
+
+        $.ajax({
+            url: uvCurr,
+            method: "GET"
+
+        }).then(function (uvCurr) {
+
+            console.log(uvCurr);
+
+            var uvRate = uvCurr.value;
+
+            //$("#uv-index").text(uvRate);
+            var uvVal = $("#uv-index");
+
+            //changing the colors of UV 
+            console.log(uvRate);
+            uvVal.text(uvRate);
+            if (uvRate <= 4) {
+                uvVal.attr("class", "bg-success");
+            } else if (4 < uvRate && uvRate <= 7) {
+                uvVal.attr("class", "bg-warning");
+            } else if (7 < uvRate) {
+                uvVal.attr("class", "bg-danger");
+            }
+
+        })
+
+    })
 
     var urlSearch = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityname + "&APPID=" + "81d8ef96afa57d12a8d97affba137461";
 
@@ -24,12 +77,6 @@ $(".search-btn").click(function (e) {
     }).then(function (response) {
 
         console.log(response);
-
-        var city = response.city.name;
-        var tempToday = response.list[0].main.temp;
-        var humidityToday = response.list[0].main.humidity;
-        var windToday = response.list[0].wind.speed;
-        //var temp = response.main.temp;
 
         var temp1 = response.list[0].main.temp;
         var humidity1 = response.list[0].main.humidity;
@@ -53,45 +100,56 @@ $(".search-btn").click(function (e) {
         var humidity5 = response.list[30].main.humidity;
         var wind5 = response.list[30].wind.speed;
 
+        // getting the html variables and setting them to the values i have taken from future weather api
 
-        $("#city-header").text(city + " " + today);
+        $("#temp-1").text("Temperature: " + temp1);
+        $("#humidity-1").text("Humidity: " + humidity1);
+        $("#wind-speed-1").text("Wind Speed: " + wind1);
 
-        //$("#condition-img").attr('src', conditionT);
+        $("#temp-2").text("Temperature: " + temp2);
+        $("#humidity-2").text("Humidity: " + humidity2);
+        $("#wind-speed-2").text("Wind Speed: " + wind2);
 
-        $("#temp").text("Temperature: " + tempToday);
-        $("#humidity").text("Humidity: " + humidityToday);
-        $("#wind-speed").text("Wind Speed: " + windToday);
+        $("#temp-3").text("Temperature: " + temp3);
+        $("#humidity-3").text("Humidity: " + humidity3);
+        $("#wind-speed-3").text("Wind Speed: " + wind3);
 
-        $("#temp-1").text("Temperature: " + tempToday);
-        $("#humidity-1").text("Humidity: " + humidityToday);
-        $("#wind-speed-1").text("Wind Speed: " + windToday);
+        $("#temp-4").text("Temperature: " + temp4);
+        $("#humidity-4").text("Humidity: " + humidity4);
+        $("#wind-speed-4").text("Wind Speed: " + wind4);
 
-        $("#temp-2").text("Temperature: " + tempToday);
-        $("#humidity-2").text("Humidity: " + humidityToday);
-        $("#wind-speed-2").text("Wind Speed: " + windToday);
+        $("#temp-5").text("Temperature: " + temp5);
+        $("#humidity-5").text("Humidity: " + humidity5);
+        $("#wind-speed-5").text("Wind Speed: " + wind5);
 
-        $("#temp-3").text("Temperature: " + tempToday);
-        $("#humidity-3").text("Humidity: " + humidityToday);
-        $("#wind-speed-3").text("Wind Speed: " + windToday);
-
-        $("#temp-4").text("Temperature: " + tempToday);
-        $("#humidity-4").text("Humidity: " + humidityToday);
-        $("#wind-speed-4").text("Wind Speed: " + windToday);
-
-        $("#temp-5").text("Temperature: " + tempToday);
-        $("#humidity-5").text("Humidity: " + humidityToday);
-        $("#wind-speed-5").text("Wind Speed: " + windToday);
-
+        // saving the search history on the browser 
     }).then(function createHistory() {
-        var searches = [];
 
-        var li = document.createElement("li");
-        li.textContent = cityname;
-        searchHistory.appendChild(li);
+
+        var button = document.createElement("button");
+
+        button.className = "hisBtn";
+        button.id = searches.length;
+        button.textContent = cityname;
+        button.style.width = "400px";
+        button.style.height = "50px";
+        button.style.color = "gray";
+
+        searchHistory.appendChild(button);
 
         searches.push(cityname);
 
 
+
     })
+
+})
+
+$("#" + searches.length + ".hisBtn").click(function (b) {
+    histroyBtn = $(".hisBtn");
+    id = histroyBtn.id
+    city = searches[id];
+    b.preventDefault();
+    cityname = city;
 
 })
