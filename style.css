@@ -21,6 +21,7 @@ h1 {
     width: 50px;
 }
 
-#box-color {
-    background-color: rgba(0, 119, 255, 0.979);
+.weather {
+
+    background-color: #0077fffa;
 }
