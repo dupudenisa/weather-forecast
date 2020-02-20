@@ -8,8 +8,12 @@ $(".search-btn").click(function (e) {
     var cityname = $("#cityName").val();
 
     var date = new Date();
+    var d = date.getDate();
+    var m =  date.getMonth();
+    m += 1;  
+    var y = date.getFullYear();
 
-    var today = date.getUTCDate();
+    var today = m + "/" + d + "/" + y;
 
     var urlCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&APPID=" + "81d8ef96afa57d12a8d97affba137461";
 
@@ -21,6 +25,7 @@ $(".search-btn").click(function (e) {
     }).then(function (dataCurr) {
 
         console.log(dataCurr);
+        //var tempF;
 
         var city = dataCurr.name;
         var tempToday = dataCurr.main.temp;
@@ -30,6 +35,7 @@ $(".search-btn").click(function (e) {
         var iconLink =  "http://openweathermap.org/img/w/" + icon + ".png";
 
 
+        //tempF = (((tempToday-213.15)+1.8)+32);
         $("#city-header").text(city + " " + today);
         console.log(icon);
         $("#condition").attr('src', iconLink);
@@ -114,27 +120,36 @@ $(".search-btn").click(function (e) {
         var iconLink5 =  "http://openweathermap.org/img/w/" + icon5 + ".png";
 
         // getting the html variables and setting them to the values i have taken from future weather api
-
+        d+=1;
+        $("#date-1").text(m +"/"+ d + "/" + y);
         $("#temp-1").text("Temperature: " + temp1);
         $("#condition-1").attr('src', iconLink1);
         $("#humidity-1").text("Humidity: " + humidity1);
         $("#wind-speed-1").text("Wind Speed: " + wind1);
 
+        d+=1;
+        $("#date-2").text(m +"/"+ d + "/" + y);
         $("#temp-2").text("Temperature: " + temp2);
         $("#condition-2").attr('src', iconLink2);
         $("#humidity-2").text("Humidity: " + humidity2);
         $("#wind-speed-2").text("Wind Speed: " + wind2);
 
+        d+=1;
+        $("#date-3").text(m +"/"+ d + "/" + y);
         $("#temp-3").text("Temperature: " + temp3);
         $("#condition-3").attr('src', iconLink3);
         $("#humidity-3").text("Humidity: " + humidity3);
         $("#wind-speed-3").text("Wind Speed: " + wind3);
 
+        d+=1;
+        $("#date-4").text(m +"/"+ d + "/" + y);
         $("#temp-4").text("Temperature: " + temp4);
         $("#condition-4").attr('src', iconLink4);
         $("#humidity-4").text("Humidity: " + humidity4);
         $("#wind-speed-4").text("Wind Speed: " + wind4);
 
+        d+=1;
+        $("#date-5").text(m +"/"+ d + "/" + y);
         $("#temp-5").text("Temperature: " + temp5);
         $("#condition-5").attr('src', iconLink5);
         $("#humidity-5").text("Humidity: " + humidity5);
