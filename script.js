@@ -24,6 +24,7 @@ $(".search-btn").click(function (e) {
 
     }).then(function (dataCurr) {
 
+        //getting current dates
         console.log(dataCurr);
         //var tempF;
 
